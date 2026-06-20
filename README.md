@@ -6,15 +6,6 @@ A sleek, professional, and high-performance YouTube video downloader built with 
 
 This application is engineered to handle video files and ensures that every downloaded video is strictly formatted with the **H.264 (AVC) codec**, making it universally compatible across Mac (QuickTime), iOS, Android, and Windows devices.
 
----
-
-## 🌐 Live Demo
-You can try the live version of the application here: 
-**[Universal Pro Video Downloader - Live App](https://youtubevideodownloader-9zm4pquuhtggyf4pq3dysp.streamlit.app/)**
-
-*(Note: The live cloud version is best for short to medium-length videos. For massive 1.5GB+ files, please run the app locally as described below).*
-
----
 
 ## ✨ Key Features
 
