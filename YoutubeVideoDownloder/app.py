@@ -81,9 +81,14 @@ def download_yt_video(video_url, output_name="video_file.mp4"):
         'fragment_retries': 50,        
         'http_chunk_size': 10485760,
         
-        # --- ANTI-BAN TRICK FOR CLOUD ---
+        # --- ULTIMATE ANTI-BAN TRICK FOR CLOUD ---
         'nocheckcertificate': True,
-        'extractor_args': {'youtube': ['player_client=android']}
+        # YouTube ko lagay ga ke request iPhone, Android aur Web se aa rahi hai
+        'extractor_args': {'youtube': ['player_client=ios,android,web']},
+        # Identity ko bilkul aam Google Chrome browser jaisa bana diya
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        }
     }
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
