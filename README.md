@@ -2,8 +2,6 @@
 
 # 🎥 Universal Pro Video Downloader
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://youtubevideodownloader-9zm4pquuhtggyf4pq3dysp.streamlit.app/)
-
 A sleek, professional, and high-performance YouTube video downloader built with **Python**, **Streamlit**, and **yt-dlp**. 
 
 This application is engineered to handle video files and ensures that every downloaded video is strictly formatted with the **H.264 (AVC) codec**, making it universally compatible across Mac (QuickTime), iOS, Android, and Windows devices.
