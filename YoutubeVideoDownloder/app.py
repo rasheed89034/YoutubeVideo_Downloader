@@ -1,7 +1,7 @@
 import streamlit as st
 import yt_dlp
 import os
-import shutil  # <--- Yeh naya module add kiya hai file copy karne ke liye
+import shutil
 
 # Page Configuration
 st.set_page_config(page_title="Universal Video Downloader", page_icon="🚀", layout="centered")
@@ -79,10 +79,11 @@ def download_yt_video(video_url, output_name="video_file.mp4"):
         'socket_timeout': 600,         
         'retries': 50,                 
         'fragment_retries': 50,        
-        'http_chunk_size': 10485760,   
+        'http_chunk_size': 10485760,
+        
+        # --- ANTI-BAN TRICK FOR CLOUD ---
         'nocheckcertificate': True,
-        'extractor_args': {'youtube': ['player_client=android']}, # YouTube ko lagega video Android mobile par chal rahi hai
-    }
+        'extractor_args': {'youtube': ['player_client=android']}
     }
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -109,20 +110,16 @@ if st.button("🚀 Fetch & Process Video"):
 if st.session_state.video_ready and os.path.exists("video_file.mp4"):
     
     st.write("---")
-    # Naya custom button jo directly Mac ke downloads mein file bhej dega
     if st.button("⬇️ Save Video to 'Downloads' Folder"):
         try:
             with st.spinner("Saving to Downloads..."):
-                # Mac ke Downloads folder ka path nikalna
                 mac_downloads_folder = os.path.expanduser("~/Downloads")
-                # Final file ka naam (Aap chahain to isay change kar sakte hain)
                 final_file_path = os.path.join(mac_downloads_folder, "My_Downloaded_Video.mp4")
                 
-                # File ko project folder se aap ke Downloads folder mein copy karna
                 shutil.copy("video_file.mp4", final_file_path)
                 
             st.success(f"🎉 Success! The video has been saved to your local 'Downloads' folder.")
             st.info("Check your system's 'Downloads' directory to view the file!")
             
         except Exception as e:
-            st.error(f"❌ Save karne mein error aaya: {e}")
+            st.error(f"❌ Error saving the file: {e}")
