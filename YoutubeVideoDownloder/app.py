@@ -80,6 +80,9 @@ def download_yt_video(video_url, output_name="video_file.mp4"):
         'retries': 50,                 
         'fragment_retries': 50,        
         'http_chunk_size': 10485760,   
+        'nocheckcertificate': True,
+        'extractor_args': {'youtube': ['player_client=android']}, # YouTube ko lagega video Android mobile par chal rahi hai
+    }
     }
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
